@@ -38,7 +38,7 @@
       const note = document.getElementById("newsletterNote");
       if (!email || !email.value.trim()) return;
       if (note) {
-        note.textContent = "Obrigado! Em breve você receberá novidades da Monarquia.";
+        note.textContent = "Obrigado! Em breve você receberá novidades Monark.";
       }
       form.reset();
     });
