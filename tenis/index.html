@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111111" />
-  <meta name="description" content="Categoria de tênis Monark. Em breve novos lançamentos." />
+  <meta name="description" content="Catálogo de tênis Monark. Lançamentos e reposições com fotos e vídeos." />
   <title>Tênis — Monark</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,13 +13,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <meta property="og:site_name" content="Monark" />
+  <meta property="og:title" content="Tênis — Monark" />
+  <meta property="og:description" content="Catálogo de tênis Monark. Lançamentos e reposições com fotos e vídeos." />
   <meta property="og:image" content="../assets/logo/og-image.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="stylesheet" href="../css/styles.css" />
+  
 </head>
 <body>
-<div class="announce">Em breve — novos lançamentos Monark · Frete e parcelas em breve</div>
-
+<div class="announce">Lançamentos e reposições Monark · Valores sob consulta</div>
 <header class="header">
   <div class="container header-main">
     <button class="icon-btn menu-toggle" id="menuOpen" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -27,14 +29,14 @@
     <nav class="nav-desktop" aria-label="Principal">
       <a href="../">Início</a>
       <a href="../tenis/" class="active">Tênis</a>
-      <a href="../tenis/">Lançamentos</a>
+      <a href="../tenis/?tag=Lançamento">Lançamentos</a>
       <a href="../sobre/">Sobre</a>
     </nav>
     <div class="header-actions">
-      <label class="search-wrap" aria-label="Buscar">
+      <form class="search-wrap" action="../tenis/" method="get" role="search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M16.5 16.5 21 21" stroke-linecap="round"/></svg>
-        <input type="search" placeholder="Buscar tênis..." />
-      </label>
+        <input type="search" name="q" placeholder="Buscar tênis..." aria-label="Buscar tênis" />
+      </form>
       <button class="icon-btn" aria-label="Minha conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" stroke-linecap="round"/></svg></button>
       <button class="icon-btn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge">0</span></button>
     </div>
@@ -42,9 +44,9 @@
   <div class="cat-bar">
     <div class="container">
       <a href="../tenis/" class="active">Tênis</a>
-      <a href="../tenis/">Masculino</a>
-      <a href="../tenis/">Feminino</a>
-      <a href="../tenis/">Lançamentos</a>
+      <a href="../tenis/?marca=Nike">Nike</a>
+      <a href="../tenis/?marca=Adidas">Adidas</a>
+      <a href="../tenis/?tag=Lançamento">Lançamentos</a>
       <a href="../sobre/">Sobre</a>
       <a href="../contato/">Contato</a>
     </div>
@@ -56,20 +58,19 @@
     <button class="drawer-close" id="menuClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
     <a href="../">Início</a>
     <a href="../tenis/">Tênis</a>
-    <a href="../tenis/">Lançamentos</a>
+    <a href="../tenis/?tag=Lançamento">Lançamentos</a>
     <a href="../sobre/">Sobre</a>
     <a href="../trocas-e-devolucoes/">Trocas e devoluções</a>
     <a href="../contato/">Contato</a>
   </aside>
 </div>
-
 <section class="page-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../">Início</a><span>/</span><span>Tênis</span>
     </nav>
     <h1>Tênis</h1>
-    <p>Masculino, feminino e unissex. Filtros prontos — produtos chegando em breve.</p>
+    <p>10 modelos no catálogo. Valores sob consulta.</p>
   </div>
 </section>
 <section class="container listing">
@@ -80,59 +81,124 @@
     </div>
     <div class="filter-group">
       <h3>Marca</h3>
-      <div class="filter-options">
-        <button type="button" class="chip">Marca A</button>
-        <button type="button" class="chip">Marca B</button>
-        <button type="button" class="chip">Marca C</button>
-      </div>
+      <div class="filter-options" id="brandFilters"><button type="button" class="chip" data-filter="brand" data-value="Adidas">Adidas</button><button type="button" class="chip" data-filter="brand" data-value="Armani Exchange">Armani Exchange</button><button type="button" class="chip" data-filter="brand" data-value="New Balance">New Balance</button><button type="button" class="chip" data-filter="brand" data-value="Nike">Nike</button><button type="button" class="chip" data-filter="brand" data-value="Prada">Prada</button><button type="button" class="chip" data-filter="brand" data-value="Vans">Vans</button></div>
     </div>
     <div class="filter-group">
-      <h3>Tamanho</h3>
-      <div class="filter-options">
-        <button type="button" class="chip">34</button><button type="button" class="chip">35</button><button type="button" class="chip">36</button><button type="button" class="chip">37</button><button type="button" class="chip">38</button><button type="button" class="chip">39</button><button type="button" class="chip">40</button><button type="button" class="chip">41</button><button type="button" class="chip">42</button><button type="button" class="chip">43</button><button type="button" class="chip">44</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <h3>Gênero</h3>
-      <div class="filter-options">
-        <button type="button" class="chip">Masculino</button>
-        <button type="button" class="chip">Feminino</button>
-        <button type="button" class="chip">Unissex</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <h3>Preço</h3>
-      <div class="price-row">
-        <input type="number" min="0" placeholder="Mín." aria-label="Preço mínimo" />
-        <input type="number" min="0" placeholder="Máx." aria-label="Preço máximo" />
-        <button type="button">OK</button>
+      <h3>Disponibilidade</h3>
+      <div class="filter-options" id="tagFilters">
+        <button type="button" class="chip" data-filter="tag" data-value="Lançamento">Lançamento</button>
+        <button type="button" class="chip" data-filter="tag" data-value="Reposição">Reposição</button>
       </div>
     </div>
   </aside>
   <div class="listing-main">
     <div class="toolbar">
-      <p class="count">0 produtos encontrados</p>
+      <p class="count" id="productCount">10 produtos encontrados</p>
       <label>
-        <span class="visually-hidden" style="position:absolute;left:-9999px">Ordenar</span>
-        <select aria-label="Ordenar">
-          <option>Ordenar por</option>
-          <option>Lançamentos</option>
-          <option>Mais vendidos</option>
-          <option>Menor preço</option>
-          <option>Maior preço</option>
-          <option>A–Z</option>
+        <span class="visually-hidden">Ordenar</span>
+        <select id="sortSelect" aria-label="Ordenar">
+          <option value="nome">A–Z</option>
+          <option value="marca">Marca</option>
+          <option value="lancamento">Lançamentos</option>
         </select>
       </label>
     </div>
-    <div class="empty">
-      <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15.5c2.2-.2 3.8-1.2 5.2-2.4 1-.9 2.2-1.6 3.8-1.6h5.5c1.4 0 2.5 1 2.5 2.4v1.6H3v-.999Z" stroke-linejoin="round"/><path d="M5 15.5V18h14.5" stroke-linecap="round"/><path d="M8.5 11.5 10 8.5h2.2" stroke-linecap="round"/></svg></div>
-      <h2>Em breve novos lançamentos</h2>
-      <p>Estamos preparando a primeira seleção de tênis da Monark. Deixe seu e-mail abaixo e seja avisado quando o estoque estiver no ar.</p>
-      <a class="btn btn-dark" href="../#newsletterForm">Avisar-me</a>
+    <div class="product-grid" id="productGrid"><a class="product-card" href="../tenis/nike-fit/" data-brand="Nike" data-tag="Lançamento" data-name="Nike Fit">
+  <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-fit/marrom-01-thumb.webp" alt="Nike Fit" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Nike</p>
+    <h3>Nike Fit</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/new-balance-supercomp-elite-v6/" data-brand="New Balance" data-tag="Lançamento" data-name="New Balance Supercomp Elite V6">
+  <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/new-balance-supercomp-elite-v6/limao-01-thumb.webp" alt="New Balance Supercomp Elite V6" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">New Balance</p>
+    <h3>New Balance Supercomp Elite V6</h3>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/vans-mte-ultrarange/" data-brand="Vans" data-tag="Lançamento" data-name="Bota Vans MTE Ultrarange">
+  <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/vans-mte-ultrarange/preto-01-thumb.webp" alt="Bota Vans MTE Ultrarange" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Vans</p>
+    <h3>Bota Vans MTE Ultrarange</h3>
+    <p class="product-meta">3 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/adidas-slip-on/" data-brand="Adidas" data-tag="Reposição" data-name="Adidas Slip On">
+  <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-slip-on/preto-01-thumb.webp" alt="Adidas Slip On" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Adidas</p>
+    <h3>Adidas Slip On</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/nike-zoom-x-run-3/" data-brand="Nike" data-tag="Lançamento" data-name="Nike Zoom X Run 3">
+  <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp" alt="Nike Zoom X Run 3" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Nike</p>
+    <h3>Nike Zoom X Run 3</h3>
+    <p class="product-meta">4 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/nike-air-force/" data-brand="Nike" data-tag="Reposição" data-name="Nike Air Force">
+  <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/nike-air-force/preto-01-thumb.webp" alt="Nike Air Force" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Nike</p>
+    <h3>Nike Air Force</h3>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/prada-thunder/" data-brand="Prada" data-tag="Reposição" data-name="Prada Thunder">
+  <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/prada-thunder/preto-01-thumb.webp" alt="Prada Thunder" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Prada</p>
+    <h3>Prada Thunder</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/adidas-campus/" data-brand="Adidas" data-tag="Reposição" data-name="Adidas Campus">
+  <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-campus/preto-01-thumb.webp" alt="Adidas Campus" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Adidas</p>
+    <h3>Adidas Campus</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/armani-exchange/" data-brand="Armani Exchange" data-tag="Lançamento" data-name="Armani Exchange">
+  <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/armani-exchange/preto-01-thumb.webp" alt="Armani Exchange" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Armani Exchange</p>
+    <h3>Armani Exchange</h3>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/adidas-adizero/" data-brand="Adidas" data-tag="" data-name="Adidas Adizero">
+  <div class="product-media"><img src="../assets/products/adidas-adizero/preto-pink-01-thumb.webp" alt="Adidas Adizero" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Adidas</p>
+    <h3>Adidas Adizero</h3>
+    <p class="product-meta">4 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a></div>
+    <div class="empty" id="emptyState" hidden>
+      <h2>Nenhum produto encontrado</h2>
+      <p>Tente limpar os filtros ou buscar outro nome.</p>
     </div>
   </div>
 </section>
-
 <section class="newsletter">
   <div class="container newsletter-inner">
     <div>
@@ -146,7 +212,6 @@
     </form>
   </div>
 </section>
-
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -162,9 +227,9 @@
     <div>
       <h3>Loja</h3>
       <a href="../tenis/">Tênis</a>
-      <a href="../tenis/">Lançamentos</a>
-      <a href="../tenis/">Masculino</a>
-      <a href="../tenis/">Feminino</a>
+      <a href="../tenis/?tag=Lançamento">Lançamentos</a>
+      <a href="../tenis/?marca=Nike">Nike</a>
+      <a href="../tenis/?marca=Adidas">Adidas</a>
     </div>
     <div>
       <h3>Pagamento</h3>
@@ -177,10 +242,11 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© 2026 Monark. Todos os direitos reservados.</span>
-    <span>Site em construção — produtos em breve.</span>
+    <span>&copy; 2026 Monark. Todos os direitos reservados.</span>
+    <span>Valores sob consulta.</span>
   </div>
 </footer>
+<script src="../js/products-data.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>
