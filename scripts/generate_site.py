@@ -24,6 +24,7 @@ def header(prefix: str, active: str = "") -> str:
     <nav class="nav-desktop" aria-label="Principal">
       {nav("", "Início", "home")}
       {nav("tenis/", "Tênis", "tenis")}
+      {nav("tenis/?categoria=Botas", "Botas", "botas")}
       {nav("tenis/?tag=Lançamento", "Lançamentos", "lancamentos")}
       {nav("sobre/", "Sobre", "sobre")}
     </nav>
@@ -39,6 +40,7 @@ def header(prefix: str, active: str = "") -> str:
   <div class="cat-bar">
     <div class="container">
       {nav("tenis/", "Tênis", "tenis")}
+      <a href="{prefix}tenis/?categoria=Botas">Botas</a>
       <a href="{prefix}tenis/?marca=Nike">Nike</a>
       <a href="{prefix}tenis/?marca=Adidas">Adidas</a>
       <a href="{prefix}tenis/?tag=Lançamento">Lançamentos</a>
@@ -53,6 +55,7 @@ def header(prefix: str, active: str = "") -> str:
     <button class="drawer-close" id="menuClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
     <a href="{prefix}">Início</a>
     <a href="{prefix}tenis/">Tênis</a>
+    <a href="{prefix}tenis/?categoria=Botas">Botas</a>
     <a href="{prefix}tenis/?tag=Lançamento">Lançamentos</a>
     <a href="{prefix}sobre/">Sobre</a>
     <a href="{prefix}trocas-e-devolucoes/">Trocas e devoluções</a>
@@ -93,6 +96,7 @@ def footer(prefix: str) -> str:
     <div>
       <h3>Loja</h3>
       <a href="{prefix}tenis/">Tênis</a>
+      <a href="{prefix}tenis/?categoria=Botas">Botas</a>
       <a href="{prefix}tenis/?tag=Lançamento">Lançamentos</a>
       <a href="{prefix}tenis/?marca=Nike">Nike</a>
       <a href="{prefix}tenis/?marca=Adidas">Adidas</a>
@@ -154,7 +158,8 @@ def product_card(p, prefix, href=None):
     ncolors = len(p["colors"])
     colors = f'<p class="product-meta">{ncolors} cor' + ("es" if ncolors != 1 else "") + "</p>"
     tag = f'<span class="product-tag">{p["tag"]}</span>' if p.get("tag") else ""
-    return f"""<a class="product-card" href="{href}" data-brand="{p["brand"]}" data-tag="{p.get("tag") or ""}" data-name="{p["name"]}">
+    cat = p.get("category") or "Tênis"
+    return f"""<a class="product-card" href="{href}" data-brand="{p["brand"]}" data-tag="{p.get("tag") or ""}" data-category="{cat}" data-name="{p["name"]}">
   <div class="product-media">{tag}<img src="{prefix}{p["cover"]}" alt="{p["name"]}" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">{p["brand"]}</p>
@@ -236,10 +241,10 @@ def listing():
     body = f"""<section class="page-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../">Início</a><span>/</span><span>Tênis</span>
+      <a href="../">Início</a><span>/</span><span>Catálogo</span>
     </nav>
-    <h1>Tênis</h1>
-    <p>{len(PRODUCTS)} modelos no catálogo. Valores sob consulta.</p>
+    <h1>Catálogo</h1>
+    <p>{len(PRODUCTS)} modelos no catálogo, organizados por categoria. Valores sob consulta.</p>
   </div>
 </section>
 <section class="container listing">
@@ -247,6 +252,13 @@ def listing():
     <div class="filters-head">
       <h2>Filtros</h2>
       <button type="button" class="clear-filters" id="clearFilters">Limpar</button>
+    </div>
+    <div class="filter-group">
+      <h3>Categoria</h3>
+      <div class="filter-options" id="categoryFilters">
+        <button type="button" class="chip" data-filter="category" data-value="Tênis">Tênis</button>
+        <button type="button" class="chip" data-filter="category" data-value="Botas">Botas</button>
+      </div>
     </div>
     <div class="filter-group">
       <h3>Marca</h3>
@@ -280,12 +292,19 @@ def listing():
   </div>
 </section>"""
     return page(
-        "Tênis — Monark",
+        "Catálogo — Monark",
         "Catálogo de tênis Monark. Lançamentos e reposições com fotos e vídeos.",
         "../",
         body,
         "tenis",
     )
+
+
+def video_entry(v):
+    if isinstance(v, dict):
+        return v.get("src") or "", v.get("poster") or ""
+    return v, ""
+
 
 
 def pdp(p):
@@ -301,9 +320,13 @@ def pdp(p):
             f'<img src="{prefix}{img["thumb"]}" alt="" /></button>'
         )
     for i, vid in enumerate(first["videos"]):
+        src, poster = video_entry(vid)
+        poster_attr = f' data-poster="{prefix}{poster}"' if poster else ""
+        poster_img = f'<img src="{prefix}{poster}" alt="" />' if poster else ""
         thumbs += (
             f'<button type="button" class="thumb thumb-video" data-kind="video" '
-            f'data-src="{prefix}{vid}" aria-label="Vídeo {i+1}"><span>▶</span></button>'
+            f'data-src="{prefix}{src}"{poster_attr} aria-label="Vídeo {i+1}">'
+            f'{poster_img}<span>▶</span></button>'
         )
     color_btns = ""
     for i, c in enumerate(colors):
@@ -313,26 +336,62 @@ def pdp(p):
             f'<button type="button" class="color-swatch{cls}" data-color="{c["id"]}" '
             f'aria-pressed="{pressed}">{c["name"]}</button>'
         )
+    all_videos = [v for c in colors for v in (c.get("videos") or [])]
     video_block = ""
-    if first["videos"]:
+    if all_videos:
+        src0, poster0 = video_entry(all_videos[0])
+        poster_attr = f' poster="{prefix}{poster0}"' if poster0 else ""
+        # Always render the player so other colors with videos can use it.
+        src_init, poster_init = video_entry(first["videos"][0]) if first["videos"] else (src0, poster0)
+        poster_attr = f' poster="{prefix}{poster_init}"' if poster_init else poster_attr
+        src_attr = f' src="{prefix}{src_init}"' if first["videos"] else ""
         video_block = (
             f'<video class="pdp-video" id="pdpVideo" controls playsinline '
-            f'preload="metadata" src="{prefix}{first["videos"][0]}" hidden></video>'
+            f'preload="metadata"{src_attr}{poster_attr} hidden></video>'
         )
+    def media_videos(c):
+        out = []
+        for v in c.get("videos") or []:
+            src, poster = video_entry(v)
+            item = {"src": prefix + src}
+            if poster:
+                item["poster"] = prefix + poster
+            out.append(item)
+        return out
     media = {
         c["id"]: {
             "name": c["name"],
             "images": [{"src": prefix + im["src"], "thumb": prefix + im["thumb"]} for im in c["images"]],
-            "videos": [prefix + v for v in c["videos"]],
+            "videos": media_videos(c),
         }
         for c in colors
     }
     media_json = json.dumps(media, ensure_ascii=False).replace("</", "<\\/")
     tag = f'<span class="pdp-tag">{p["tag"]}</span>' if p.get("tag") else ""
     ncolors = ", ".join(c["name"] for c in colors)
+    labels = p.get("labelTexts") or []
+    label_imgs = p.get("labelImages") or []
+    label_note = p.get("labelNote") or ""
+    label_block = ""
+    if labels or label_imgs or label_note:
+        lines = "".join(f"<p class=\"label-line\">{txt}</p>" for txt in labels)
+        note = f"<p class=\"label-note\">{label_note}</p>" if label_note else ""
+        prints = "".join(
+            f'<img class="label-print" src="{prefix}{src}" alt="Print com o nome do produto" />'
+            for src in label_imgs
+        )
+        label_block = (
+            '<div class="pdp-labels">'
+            "<h2>Identificação do produto</h2>"
+            + (lines or "")
+            + note
+            + prints
+            + "</div>"
+        )
+    cat = p.get("category") or "Tênis"
     body = f"""<section class="container pdp" data-product="{p["slug"]}">
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../../">Início</a><span>/</span><a href="../">Tênis</a><span>/</span><span>{p["name"]}</span>
+    <a href="../../">Início</a><span>/</span><a href="../">Catálogo</a><span>/</span><span>{p["name"]}</span>
   </nav>
   <div class="pdp-grid">
     <div class="pdp-gallery">
@@ -343,7 +402,7 @@ def pdp(p):
       <div class="pdp-thumbs" id="pdpThumbs">{thumbs}</div>
     </div>
     <div class="pdp-buy">
-      <p class="product-brand">{p["brand"]}</p>
+      <p class="product-brand">{p["brand"]} · {cat}</p>
       {tag}
       <h1>{p["name"]}</h1>
       <p class="pdp-price">Consulte</p>
@@ -361,6 +420,7 @@ def pdp(p):
     <h2>Descrição</h2>
     <p>{p["description"]}</p>
     <p>Cores neste modelo: {ncolors}.</p>
+    {label_block}
   </div>
 </section>
 <script>window.MONARK_MEDIA = {media_json};</script>"""

@@ -48,17 +48,20 @@
     function apply() {
       const brands = activeValues("brand");
       const tags = activeValues("tag");
+      const cats = activeValues("category");
       const q = (params.get("q") || "").trim().toLowerCase();
       const cards = Array.from(grid.querySelectorAll(".product-card"));
       let visible = 0;
       cards.forEach((card) => {
         const brand = card.dataset.brand || "";
         const tag = card.dataset.tag || "";
+        const category = card.dataset.category || "";
         const name = (card.dataset.name || card.textContent || "").toLowerCase();
         const okBrand = !brands.length || brands.includes(brand);
         const okTag = !tags.length || tags.includes(tag);
-        const okQ = !q || name.includes(q) || brand.toLowerCase().includes(q);
-        const show = okBrand && okTag && okQ;
+        const okCat = !cats.length || cats.includes(category);
+        const okQ = !q || name.includes(q) || brand.toLowerCase().includes(q) || category.toLowerCase().includes(q);
+        const show = okBrand && okTag && okCat && okQ;
         card.hidden = !show;
         if (show) visible += 1;
       });
@@ -105,6 +108,7 @@
         params.delete("q");
         params.delete("marca");
         params.delete("tag");
+        params.delete("categoria");
         const search = document.querySelector('.search-wrap input[name="q"]');
         if (search) search.value = "";
         history.replaceState({}, "", location.pathname);
@@ -116,6 +120,7 @@
     // URL params
     const marca = params.get("marca");
     const tag = params.get("tag");
+    const categoria = params.get("categoria");
     const q = params.get("q");
     if (marca) {
       document.querySelectorAll('.chip[data-filter="brand"]').forEach((c) => {
@@ -125,6 +130,11 @@
     if (tag) {
       document.querySelectorAll('.chip[data-filter="tag"]').forEach((c) => {
         if (c.dataset.value === tag) c.classList.add("active");
+      });
+    }
+    if (categoria) {
+      document.querySelectorAll('.chip[data-filter="category"]').forEach((c) => {
+        if (c.dataset.value === categoria) c.classList.add("active");
       });
     }
     if (q) {
@@ -154,9 +164,16 @@
         video.hidden = true;
       }
     }
-    function showVideo(src) {
+    function videoSrc(v) {
+      return typeof v === "string" ? v : (v && v.src) || "";
+    }
+    function videoPoster(v) {
+      return typeof v === "string" ? "" : (v && v.poster) || "";
+    }
+    function showVideo(src, poster) {
       if (!video) return;
       video.hidden = false;
+      if (poster) video.setAttribute("poster", poster);
       if (video.getAttribute("src") !== src) video.src = src;
       if (main) main.hidden = true;
     }
@@ -174,14 +191,17 @@
         btn.innerHTML = '<img src="' + img.thumb + '" alt="" />';
         thumbs.appendChild(btn);
       });
-      (color.videos || []).forEach((src, i) => {
+      (color.videos || []).forEach((v, i) => {
+        const src = videoSrc(v);
+        const poster = videoPoster(v);
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "thumb thumb-video";
         btn.dataset.kind = "video";
         btn.dataset.src = src;
+        if (poster) btn.dataset.poster = poster;
         btn.setAttribute("aria-label", "Vídeo " + (i + 1));
-        btn.innerHTML = "<span>▶</span>";
+        btn.innerHTML = (poster ? '<img src="' + poster + '" alt="" />' : "") + "<span>▶</span>";
         thumbs.appendChild(btn);
       });
     }
@@ -192,7 +212,7 @@
         if (!btn) return;
         thumbs.querySelectorAll(".thumb").forEach((t) => t.classList.remove("is-active"));
         btn.classList.add("is-active");
-        if (btn.dataset.kind === "video") showVideo(btn.dataset.src);
+        if (btn.dataset.kind === "video") showVideo(btn.dataset.src, btn.dataset.poster);
         else showImage(btn.dataset.src);
       });
 

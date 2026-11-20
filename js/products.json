@@ -4,9 +4,18 @@
     "name": "Nike Fit",
     "brand": "Nike",
     "tag": "Lançamento",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Nike Fit na cor marrom, com swoosh off-white e solado creme. Lançamento disponível, conforme o material enviado.",
+    "description": "Tênis Nike Fit na cor marrom, com swoosh off-white e solado creme. Lançamento disponível.",
+    "labelTexts": [
+      "LANÇAMENTOS DISPONÍVEIS",
+      "NIKE FIT"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/nike-fit/label-01.webp"
+    ],
     "cover": "assets/products/nike-fit/marrom-01-thumb.webp",
     "coverFull": "assets/products/nike-fit/marrom-01.webp",
     "colors": [
@@ -42,9 +51,18 @@
     "name": "New Balance Supercomp Elite V6",
     "brand": "New Balance",
     "tag": "Lançamento",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis New Balance Supercomp Elite V6, com entressola Infinion. Disponível nas cores limão e coral, conforme o material enviado.",
+    "description": "Tênis New Balance Supercomp Elite V6, com entressola Infinion. Disponível nas cores limão e coral.",
+    "labelTexts": [
+      "LANÇAMENTO DISPONÍVEL",
+      "NEW BALANCE SUPERCOMP ELITE V6"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/new-balance-supercomp-elite-v6/label-01.webp"
+    ],
     "cover": "assets/products/new-balance-supercomp-elite-v6/limao-01-thumb.webp",
     "coverFull": "assets/products/new-balance-supercomp-elite-v6/limao-01.webp",
     "colors": [
@@ -105,9 +123,18 @@
     "name": "Bota Vans MTE Ultrarange",
     "brand": "Vans",
     "tag": "Lançamento",
+    "category": "Botas",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Bota Vans MTE Ultrarange, cano médio, com solado tratorado. Disponível nas cores preto, preto e branco, e bege, conforme o material enviado.",
+    "description": "Bota Vans MTE Ultrarange, cano médio, com solado tratorado. Disponível nas cores preto, preto e branco, e bege.",
+    "labelTexts": [
+      "SUPER LANÇAMENTOS DISPONÍVEIS",
+      "BOTA VANS MTE ULTRARANGE"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/vans-mte-ultrarange/label-01.webp"
+    ],
     "cover": "assets/products/vans-mte-ultrarange/preto-01-thumb.webp",
     "coverFull": "assets/products/vans-mte-ultrarange/preto-01.webp",
     "colors": [
@@ -148,7 +175,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0134.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0134.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0134.webp"
+          }
         ]
       },
       {
@@ -171,9 +201,18 @@
     "name": "Adidas Slip On",
     "brand": "Adidas",
     "tag": "Reposição",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Adidas Slip On na cor preta, com elástico cruzado, bico clássico e solado branco. Reposição disponível, conforme o material enviado.",
+    "description": "Tênis Adidas Slip On na cor preta, com elástico cruzado, bico clássico e solado branco. Reposição disponível.",
+    "labelTexts": [
+      "REPOSIÇÃO DISPONÍVEL",
+      "ADIDAS SLIP ON"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/adidas-slip-on/label-01.webp"
+    ],
     "cover": "assets/products/adidas-slip-on/preto-01-thumb.webp",
     "coverFull": "assets/products/adidas-slip-on/preto-01.webp",
     "colors": [
@@ -209,9 +248,19 @@
     "name": "Nike Zoom X Run 3",
     "brand": "Nike",
     "tag": "Lançamento",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Nike Zoom X Run 3, com unidade visível no solado. Disponível nas cores off-white e rosa, marrom, preto e pink, e preto, conforme o material enviado.",
+    "description": "Tênis Nike Zoom X Run 3, com unidade visível no solado. Disponível nas cores off-white e rosa, marrom, preto e pink, e preto.",
+    "labelTexts": [
+      "LANÇAMENTO DISPONÍVEL — NIKE ZOOM X RUN 3",
+      "LANÇAMENTOS DISPONÍVEIS — NIKE ZOOM X RUN 3"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/nike-zoom-x-run-3/label-01.webp",
+      "assets/products/nike-zoom-x-run-3/label-02.webp"
+    ],
     "cover": "assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp",
     "coverFull": "assets/products/nike-zoom-x-run-3/off-white-rosa-01.webp",
     "colors": [
@@ -258,7 +307,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0148.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0148.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0148.webp"
+          }
         ]
       },
       {
@@ -273,7 +325,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0146.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0146.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0146.webp"
+          }
         ]
       },
       {
@@ -308,9 +363,19 @@
     "name": "Nike Air Force",
     "brand": "Nike",
     "tag": "Reposição",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Nike Air Force. Disponível nas cores preto e branco com swoosh azul-marinho. Reposição disponível, conforme o material enviado.",
+    "description": "Tênis Nike Air Force. Disponível nas cores preto e branco com swoosh azul-marinho. Reposição disponível.",
+    "labelTexts": [
+      "REPOSIÇÃO DISPONÍVEL — NIKE AIR FORCE",
+      "REPOSIÇÃO DISPONÍVEL — NIKE AIR FORCE"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/nike-air-force/label-01.webp",
+      "assets/products/nike-air-force/label-02.webp"
+    ],
     "cover": "assets/products/nike-air-force/preto-01-thumb.webp",
     "coverFull": "assets/products/nike-air-force/preto-01.webp",
     "colors": [
@@ -344,7 +409,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0158.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0158.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0158.webp"
+          }
         ]
       },
       {
@@ -371,8 +439,14 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0180.mp4",
-          "assets/videos/VID-20261115-WA0181.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0180.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0180.webp"
+          },
+          {
+            "src": "assets/videos/VID-20261115-WA0181.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0181.webp"
+          }
         ]
       }
     ]
@@ -382,9 +456,18 @@
     "name": "Prada Thunder",
     "brand": "Prada",
     "tag": "Reposição",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Prada Thunder na cor preta, com solado tratorado. Reposição disponível, conforme o material enviado.",
+    "description": "Tênis Prada Thunder na cor preta, com solado tratorado. Reposição disponível.",
+    "labelTexts": [
+      "REPOSIÇÃO DISPONÍVEL",
+      "PRADA THUNDER"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/prada-thunder/label-01.webp"
+    ],
     "cover": "assets/products/prada-thunder/preto-01-thumb.webp",
     "coverFull": "assets/products/prada-thunder/preto-01.webp",
     "colors": [
@@ -418,7 +501,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261115-WA0164.mp4"
+          {
+            "src": "assets/videos/VID-20261115-WA0164.mp4",
+            "poster": "assets/videos/posters/VID-20261115-WA0164.webp"
+          }
         ]
       }
     ]
@@ -428,9 +514,18 @@
     "name": "Adidas Campus",
     "brand": "Adidas",
     "tag": "Reposição",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Adidas Campus na cor preta, com três listras brancas e solado creme. Reposição disponível, conforme o material enviado.",
+    "description": "Tênis Adidas Campus na cor preta, com três listras brancas e solado creme. Reposição disponível.",
+    "labelTexts": [
+      "REPOSIÇÃO DISPONÍVEL",
+      "ADIDAS CAMPUS"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/adidas-campus/label-01.webp"
+    ],
     "cover": "assets/products/adidas-campus/preto-01-thumb.webp",
     "coverFull": "assets/products/adidas-campus/preto-01.webp",
     "colors": [
@@ -466,9 +561,18 @@
     "name": "Armani Exchange",
     "brand": "Armani Exchange",
     "tag": "Lançamento",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Armani Exchange de malha, com solado branco. Disponível nas cores preto e branco. Lançamento disponível, conforme o material enviado.",
+    "description": "Tênis Armani Exchange de malha, com solado branco. Disponível nas cores preto e branco. Lançamento disponível.",
+    "labelTexts": [
+      "LANÇAMENTOS DISPONÍVEIS",
+      "ARMANI EXCHANGE"
+    ],
+    "labelNote": "",
+    "labelImages": [
+      "assets/products/armani-exchange/label-01.webp"
+    ],
     "cover": "assets/products/armani-exchange/preto-01-thumb.webp",
     "coverFull": "assets/products/armani-exchange/preto-01.webp",
     "colors": [
@@ -529,9 +633,13 @@
     "name": "Adidas Adizero",
     "brand": "Adidas",
     "tag": "",
+    "category": "Tênis",
     "price": null,
     "priceLabel": "Consulte",
-    "description": "Tênis Adidas Adizero com Lightstrike Pro no solado. Disponível nas cores preto e pink, branco e rose gold, branco e rosa, e azul e rosa. O nome segue o que aparece no próprio tênis.",
+    "description": "Tênis Adidas Adizero com Lightstrike Pro no solado. Disponível nas cores preto e pink, branco e rose gold, branco e rosa, e azul e rosa. O nome segue o texto que aparece no próprio tênis (ADIZERO / LIGHTSTRIKE PRO).",
+    "labelTexts": [],
+    "labelNote": "Não havia print de WhatsApp com o nome. Identificado pelo texto no tênis: ADIZERO / LIGHTSTRIKE PRO.",
+    "labelImages": [],
     "cover": "assets/products/adidas-adizero/preto-pink-01-thumb.webp",
     "coverFull": "assets/products/adidas-adizero/preto-pink-01.webp",
     "colors": [
@@ -547,7 +655,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261117-WA0007.mp4"
+          {
+            "src": "assets/videos/VID-20261117-WA0007.mp4",
+            "poster": "assets/videos/posters/VID-20261117-WA0007.webp"
+          }
         ]
       },
       {
@@ -562,7 +673,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261117-WA0005.mp4"
+          {
+            "src": "assets/videos/VID-20261117-WA0005.mp4",
+            "poster": "assets/videos/posters/VID-20261117-WA0005.webp"
+          }
         ]
       },
       {
@@ -577,7 +691,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261117-WA0009.mp4"
+          {
+            "src": "assets/videos/VID-20261117-WA0009.mp4",
+            "poster": "assets/videos/posters/VID-20261117-WA0009.webp"
+          }
         ]
       },
       {
@@ -598,7 +715,10 @@
           }
         ],
         "videos": [
-          "assets/videos/VID-20261117-WA0004.mp4"
+          {
+            "src": "assets/videos/VID-20261117-WA0004.mp4",
+            "poster": "assets/videos/posters/VID-20261117-WA0004.webp"
+          }
         ]
       }
     ]

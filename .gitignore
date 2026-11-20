@@ -1,2 +1,3 @@
 .netlify/
 drive/
+__pycache__/

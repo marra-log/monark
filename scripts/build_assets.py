@@ -18,7 +18,7 @@ PRODUCTS = [
         "name": "Nike Fit",
         "brand": "Nike",
         "tag": "Lançamento",
-        "description": "Tênis Nike Fit na cor marrom, com swoosh off-white e solado creme. Lançamento disponível, conforme o material enviado.",
+        "description": "Tênis Nike Fit na cor marrom, com swoosh off-white e solado creme. Lançamento disponível.",
         "colors": [
             {
                 "id": "marrom",
@@ -33,7 +33,7 @@ PRODUCTS = [
         "name": "New Balance Supercomp Elite V6",
         "brand": "New Balance",
         "tag": "Lançamento",
-        "description": "Tênis New Balance Supercomp Elite V6, com entressola Infinion. Disponível nas cores limão e coral, conforme o material enviado.",
+        "description": "Tênis New Balance Supercomp Elite V6, com entressola Infinion. Disponível nas cores limão e coral.",
         "colors": [
             {
                 "id": "limao",
@@ -59,7 +59,7 @@ PRODUCTS = [
         "name": "Bota Vans MTE Ultrarange",
         "brand": "Vans",
         "tag": "Lançamento",
-        "description": "Bota Vans MTE Ultrarange, cano médio, com solado tratorado. Disponível nas cores preto, preto e branco, e bege, conforme o material enviado.",
+        "description": "Bota Vans MTE Ultrarange, cano médio, com solado tratorado. Disponível nas cores preto, preto e branco, e bege.",
         "colors": [
             {
                 "id": "preto",
@@ -86,7 +86,7 @@ PRODUCTS = [
         "name": "Adidas Slip On",
         "brand": "Adidas",
         "tag": "Reposição",
-        "description": "Tênis Adidas Slip On na cor preta, com elástico cruzado, bico clássico e solado branco. Reposição disponível, conforme o material enviado.",
+        "description": "Tênis Adidas Slip On na cor preta, com elástico cruzado, bico clássico e solado branco. Reposição disponível.",
         "colors": [
             {
                 "id": "preto",
@@ -101,7 +101,7 @@ PRODUCTS = [
         "name": "Nike Zoom X Run 3",
         "brand": "Nike",
         "tag": "Lançamento",
-        "description": "Tênis Nike Zoom X Run 3, com unidade visível no solado. Disponível nas cores off-white e rosa, marrom, preto e pink, e preto, conforme o material enviado.",
+        "description": "Tênis Nike Zoom X Run 3, com unidade visível no solado. Disponível nas cores off-white e rosa, marrom, preto e pink, e preto.",
         "colors": [
             {
                 "id": "off-white-rosa",
@@ -134,7 +134,7 @@ PRODUCTS = [
         "name": "Nike Air Force",
         "brand": "Nike",
         "tag": "Reposição",
-        "description": "Tênis Nike Air Force. Disponível nas cores preto e branco com swoosh azul-marinho. Reposição disponível, conforme o material enviado.",
+        "description": "Tênis Nike Air Force. Disponível nas cores preto e branco com swoosh azul-marinho. Reposição disponível.",
         "colors": [
             {
                 "id": "preto",
@@ -160,7 +160,7 @@ PRODUCTS = [
         "name": "Prada Thunder",
         "brand": "Prada",
         "tag": "Reposição",
-        "description": "Tênis Prada Thunder na cor preta, com solado tratorado. Reposição disponível, conforme o material enviado.",
+        "description": "Tênis Prada Thunder na cor preta, com solado tratorado. Reposição disponível.",
         "colors": [
             {
                 "id": "preto",
@@ -180,7 +180,7 @@ PRODUCTS = [
         "name": "Adidas Campus",
         "brand": "Adidas",
         "tag": "Reposição",
-        "description": "Tênis Adidas Campus na cor preta, com três listras brancas e solado creme. Reposição disponível, conforme o material enviado.",
+        "description": "Tênis Adidas Campus na cor preta, com três listras brancas e solado creme. Reposição disponível.",
         "colors": [
             {
                 "id": "preto",
@@ -195,7 +195,7 @@ PRODUCTS = [
         "name": "Armani Exchange",
         "brand": "Armani Exchange",
         "tag": "Lançamento",
-        "description": "Tênis Armani Exchange de malha, com solado branco. Disponível nas cores preto e branco. Lançamento disponível, conforme o material enviado.",
+        "description": "Tênis Armani Exchange de malha, com solado branco. Disponível nas cores preto e branco. Lançamento disponível.",
         "colors": [
             {
                 "id": "preto",
@@ -216,7 +216,7 @@ PRODUCTS = [
         "name": "Adidas Adizero",
         "brand": "Adidas",
         "tag": "",
-        "description": "Tênis Adidas Adizero com Lightstrike Pro no solado. Disponível nas cores preto e pink, branco e rose gold, branco e rosa, e azul e rosa. O nome segue o que aparece no próprio tênis; não havia texto de descrição na pasta do Drive.",
+        "description": "Tênis Adidas Adizero com Lightstrike Pro no solado. Disponível nas cores preto e pink, branco e rose gold, branco e rosa, e azul e rosa. O nome segue o texto que aparece no próprio tênis (ADIZERO / LIGHTSTRIKE PRO).",
         "colors": [
             {
                 "id": "preto-pink",
@@ -245,6 +245,66 @@ PRODUCTS = [
         ],
     },
 ]
+
+
+
+# Extra catalog fields from WhatsApp prints (OCR) and visual grouping.
+# Prices were not present in any print, caption, filename or document.
+LABELS = {
+    "nike-fit": {
+        "texts": ["LANÇAMENTOS DISPONÍVEIS", "NIKE FIT"],
+        "files": ["IMG-20261115-WA0119.jpg"],
+    },
+    "new-balance-supercomp-elite-v6": {
+        "texts": ["LANÇAMENTO DISPONÍVEL", "NEW BALANCE SUPERCOMP ELITE V6"],
+        "files": ["IMG-20261115-WA0124.jpg"],
+    },
+    "vans-mte-ultrarange": {
+        "texts": ["SUPER LANÇAMENTOS DISPONÍVEIS", "BOTA VANS MTE ULTRARANGE"],
+        "files": ["IMG-20261115-WA0133.jpg"],
+    },
+    "adidas-slip-on": {
+        "texts": ["REPOSIÇÃO DISPONÍVEL", "ADIDAS SLIP ON"],
+        "files": ["IMG-20261115-WA0135.jpg"],
+    },
+    "nike-zoom-x-run-3": {
+        "texts": [
+            "LANÇAMENTO DISPONÍVEL — NIKE ZOOM X RUN 3",
+            "LANÇAMENTOS DISPONÍVEIS — NIKE ZOOM X RUN 3",
+        ],
+        "files": ["IMG-20261115-WA0140.jpg", "IMG-20261115-WA0152.jpg"],
+    },
+    "nike-air-force": {
+        "texts": [
+            "REPOSIÇÃO DISPONÍVEL — NIKE AIR FORCE",
+            "REPOSIÇÃO DISPONÍVEL — NIKE AIR FORCE",
+        ],
+        "files": ["IMG-20261115-WA0157.jpg", "IMG-20261115-WA0179.jpg"],
+    },
+    "prada-thunder": {
+        "texts": ["REPOSIÇÃO DISPONÍVEL", "PRADA THUNDER"],
+        "files": ["IMG-20261115-WA0160.jpg"],
+    },
+    "adidas-campus": {
+        "texts": ["REPOSIÇÃO DISPONÍVEL", "ADIDAS CAMPUS"],
+        "files": ["IMG-20261115-WA0168.jpg"],
+    },
+    "armani-exchange": {
+        "texts": ["LANÇAMENTOS DISPONÍVEIS", "ARMANI EXCHANGE"],
+        "files": ["IMG-20261115-WA0175.jpg"],
+    },
+    "adidas-adizero": {
+        "texts": [],
+        "files": [],
+        "note": "Não havia print de WhatsApp com o nome. Identificado pelo texto no tênis: ADIZERO / LIGHTSTRIKE PRO.",
+    },
+}
+
+def category_for(name: str, slug: str) -> str:
+    if "bota" in name.lower() or slug.startswith("vans-"):
+        return "Botas"
+    return "Tênis"
+
 
 
 def to_webp(src: Path, dest: Path, max_side: int, quality: int) -> tuple[int, int]:
@@ -284,10 +344,22 @@ def optimize():
                 rel = f"assets/products/{slug}/{stem}.webp"
                 rel_t = f"assets/products/{slug}/{stem}-thumb.webp"
                 imgs.append({"src": rel, "thumb": rel_t, "w": gw, "h": gh})
-            vids = [f"assets/videos/{vname}" for vname in color["videos"]]
+            vids = []
             for vname in color["videos"]:
                 if not (VID_OUT / vname).exists():
                     print(f"NOTE video not ready yet: {vname}")
+                poster_src = ROOT / "drive/frames" / Path(vname).with_suffix(".jpg").name
+                poster_rel = f"assets/videos/posters/{Path(vname).stem}.webp"
+                poster_dest = ROOT / poster_rel
+                if poster_src.exists():
+                    to_webp(poster_src, poster_dest, 1000, 75)
+                else:
+                    print(f"NOTE missing poster frame for {vname}")
+                    poster_rel = None
+                vids.append({
+                    "src": f"assets/videos/{vname}",
+                    "poster": poster_rel,
+                })
             out_colors.append({
                 "id": color["id"],
                 "name": color["name"],
@@ -295,14 +367,28 @@ def optimize():
                 "videos": vids,
             })
         first = out_colors[0]["images"][0]
+        meta = LABELS.get(slug, {"texts": [], "files": []})
+        label_imgs = []
+        for i, fname in enumerate(meta.get("files") or [], start=1):
+            src = RAW / fname
+            if not src.exists():
+                print("NOTE missing label", src)
+                continue
+            rel = f"assets/products/{slug}/label-{i:02d}.webp"
+            to_webp(src, ROOT / rel, 1400, 80)
+            label_imgs.append(rel)
         catalog.append({
             "slug": slug,
             "name": p["name"],
             "brand": p["brand"],
             "tag": p["tag"],
+            "category": category_for(p["name"], slug),
             "price": None,
             "priceLabel": "Consulte",
             "description": p["description"],
+            "labelTexts": meta.get("texts") or [],
+            "labelNote": meta.get("note") or "",
+            "labelImages": label_imgs,
             "cover": first["thumb"],
             "coverFull": first["src"],
             "colors": out_colors,

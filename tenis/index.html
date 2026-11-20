@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111111" />
   <meta name="description" content="Catálogo de tênis Monark. Lançamentos e reposições com fotos e vídeos." />
-  <title>Tênis — Monark</title>
+  <title>Catálogo — Monark</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <meta property="og:site_name" content="Monark" />
-  <meta property="og:title" content="Tênis — Monark" />
+  <meta property="og:title" content="Catálogo — Monark" />
   <meta property="og:description" content="Catálogo de tênis Monark. Lançamentos e reposições com fotos e vídeos." />
   <meta property="og:image" content="../assets/logo/og-image.png" />
   <meta name="twitter:card" content="summary" />
@@ -29,6 +29,7 @@
     <nav class="nav-desktop" aria-label="Principal">
       <a href="../">Início</a>
       <a href="../tenis/" class="active">Tênis</a>
+      <a href="../tenis/?categoria=Botas">Botas</a>
       <a href="../tenis/?tag=Lançamento">Lançamentos</a>
       <a href="../sobre/">Sobre</a>
     </nav>
@@ -44,6 +45,7 @@
   <div class="cat-bar">
     <div class="container">
       <a href="../tenis/" class="active">Tênis</a>
+      <a href="../tenis/?categoria=Botas">Botas</a>
       <a href="../tenis/?marca=Nike">Nike</a>
       <a href="../tenis/?marca=Adidas">Adidas</a>
       <a href="../tenis/?tag=Lançamento">Lançamentos</a>
@@ -58,6 +60,7 @@
     <button class="drawer-close" id="menuClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
     <a href="../">Início</a>
     <a href="../tenis/">Tênis</a>
+    <a href="../tenis/?categoria=Botas">Botas</a>
     <a href="../tenis/?tag=Lançamento">Lançamentos</a>
     <a href="../sobre/">Sobre</a>
     <a href="../trocas-e-devolucoes/">Trocas e devoluções</a>
@@ -67,10 +70,10 @@
 <section class="page-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../">Início</a><span>/</span><span>Tênis</span>
+      <a href="../">Início</a><span>/</span><span>Catálogo</span>
     </nav>
-    <h1>Tênis</h1>
-    <p>10 modelos no catálogo. Valores sob consulta.</p>
+    <h1>Catálogo</h1>
+    <p>10 modelos no catálogo, organizados por categoria. Valores sob consulta.</p>
   </div>
 </section>
 <section class="container listing">
@@ -78,6 +81,13 @@
     <div class="filters-head">
       <h2>Filtros</h2>
       <button type="button" class="clear-filters" id="clearFilters">Limpar</button>
+    </div>
+    <div class="filter-group">
+      <h3>Categoria</h3>
+      <div class="filter-options" id="categoryFilters">
+        <button type="button" class="chip" data-filter="category" data-value="Tênis">Tênis</button>
+        <button type="button" class="chip" data-filter="category" data-value="Botas">Botas</button>
+      </div>
     </div>
     <div class="filter-group">
       <h3>Marca</h3>
@@ -103,7 +113,7 @@
         </select>
       </label>
     </div>
-    <div class="product-grid" id="productGrid"><a class="product-card" href="../tenis/nike-fit/" data-brand="Nike" data-tag="Lançamento" data-name="Nike Fit">
+    <div class="product-grid" id="productGrid"><a class="product-card" href="../tenis/nike-fit/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Fit">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-fit/marrom-01-thumb.webp" alt="Nike Fit" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
@@ -112,7 +122,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/new-balance-supercomp-elite-v6/" data-brand="New Balance" data-tag="Lançamento" data-name="New Balance Supercomp Elite V6">
+<a class="product-card" href="../tenis/new-balance-supercomp-elite-v6/" data-brand="New Balance" data-tag="Lançamento" data-category="Tênis" data-name="New Balance Supercomp Elite V6">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/new-balance-supercomp-elite-v6/limao-01-thumb.webp" alt="New Balance Supercomp Elite V6" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">New Balance</p>
@@ -121,7 +131,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/vans-mte-ultrarange/" data-brand="Vans" data-tag="Lançamento" data-name="Bota Vans MTE Ultrarange">
+<a class="product-card" href="../tenis/vans-mte-ultrarange/" data-brand="Vans" data-tag="Lançamento" data-category="Botas" data-name="Bota Vans MTE Ultrarange">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/vans-mte-ultrarange/preto-01-thumb.webp" alt="Bota Vans MTE Ultrarange" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Vans</p>
@@ -130,7 +140,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-slip-on/" data-brand="Adidas" data-tag="Reposição" data-name="Adidas Slip On">
+<a class="product-card" href="../tenis/adidas-slip-on/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Slip On">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-slip-on/preto-01-thumb.webp" alt="Adidas Slip On" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
@@ -139,7 +149,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/nike-zoom-x-run-3/" data-brand="Nike" data-tag="Lançamento" data-name="Nike Zoom X Run 3">
+<a class="product-card" href="../tenis/nike-zoom-x-run-3/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Zoom X Run 3">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp" alt="Nike Zoom X Run 3" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
@@ -148,7 +158,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/nike-air-force/" data-brand="Nike" data-tag="Reposição" data-name="Nike Air Force">
+<a class="product-card" href="../tenis/nike-air-force/" data-brand="Nike" data-tag="Reposição" data-category="Tênis" data-name="Nike Air Force">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/nike-air-force/preto-01-thumb.webp" alt="Nike Air Force" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
@@ -157,7 +167,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/prada-thunder/" data-brand="Prada" data-tag="Reposição" data-name="Prada Thunder">
+<a class="product-card" href="../tenis/prada-thunder/" data-brand="Prada" data-tag="Reposição" data-category="Tênis" data-name="Prada Thunder">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/prada-thunder/preto-01-thumb.webp" alt="Prada Thunder" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Prada</p>
@@ -166,7 +176,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-campus/" data-brand="Adidas" data-tag="Reposição" data-name="Adidas Campus">
+<a class="product-card" href="../tenis/adidas-campus/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Campus">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-campus/preto-01-thumb.webp" alt="Adidas Campus" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
@@ -175,7 +185,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/armani-exchange/" data-brand="Armani Exchange" data-tag="Lançamento" data-name="Armani Exchange">
+<a class="product-card" href="../tenis/armani-exchange/" data-brand="Armani Exchange" data-tag="Lançamento" data-category="Tênis" data-name="Armani Exchange">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/armani-exchange/preto-01-thumb.webp" alt="Armani Exchange" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Armani Exchange</p>
@@ -184,7 +194,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-adizero/" data-brand="Adidas" data-tag="" data-name="Adidas Adizero">
+<a class="product-card" href="../tenis/adidas-adizero/" data-brand="Adidas" data-tag="" data-category="Tênis" data-name="Adidas Adizero">
   <div class="product-media"><img src="../assets/products/adidas-adizero/preto-pink-01-thumb.webp" alt="Adidas Adizero" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
@@ -227,6 +237,7 @@
     <div>
       <h3>Loja</h3>
       <a href="../tenis/">Tênis</a>
+      <a href="../tenis/?categoria=Botas">Botas</a>
       <a href="../tenis/?tag=Lançamento">Lançamentos</a>
       <a href="../tenis/?marca=Nike">Nike</a>
       <a href="../tenis/?marca=Adidas">Adidas</a>
