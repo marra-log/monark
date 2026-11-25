@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-ROOT = Path("/workspace/monarquia")
+ROOT = Path(__file__).resolve().parent.parent
 PRODUCTS = json.loads((ROOT / "js/products.json").read_text(encoding="utf-8"))
 
-ANNOUNCE = "Lançamentos e reposições Monark · Valores sob consulta"
+ANNOUNCE = "Lançamentos e reposições Monark · Preços no site"
 
 
 def header(prefix: str, active: str = "") -> str:
@@ -113,7 +113,7 @@ def footer(prefix: str) -> str:
   </div>
   <div class="container footer-bottom">
     <span>&copy; 2026 Monark. Todos os direitos reservados.</span>
-    <span>Valores sob consulta.</span>
+    <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
 <script src="{prefix}js/products-data.js"></script>
@@ -153,30 +153,59 @@ def page(title, description, prefix, body, active="", extra_head=""):
 """
 
 
+def fmt_brl(v):
+    s = f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return f"R$ {s}"
+
+
+def color_prices(p):
+    return [c.get("price") for c in p["colors"]]
+
+
+def min_price(p):
+    known = [v for v in color_prices(p) if v]
+    return min(known) if known else None
+
+
+def price_label(p):
+    prices = color_prices(p)
+    known = [v for v in prices if v]
+    if not known:
+        return "Consulte"
+    if len(known) == len(prices) and len(set(known)) == 1:
+        return fmt_brl(known[0])
+    return "A partir de " + fmt_brl(min(known))
+
+
+def color_price_label(c):
+    return fmt_brl(c["price"]) if c.get("price") else "Consulte"
+
+
 def product_card(p, prefix, href=None):
     href = href or f"{prefix}tenis/{p['slug']}/"
     ncolors = len(p["colors"])
     colors = f'<p class="product-meta">{ncolors} cor' + ("es" if ncolors != 1 else "") + "</p>"
     tag = f'<span class="product-tag">{p["tag"]}</span>' if p.get("tag") else ""
     cat = p.get("category") or "Tênis"
-    return f"""<a class="product-card" href="{href}" data-brand="{p["brand"]}" data-tag="{p.get("tag") or ""}" data-category="{cat}" data-name="{p["name"]}">
+    return f"""<a class="product-card" href="{href}" data-brand="{p["brand"]}" data-tag="{p.get("tag") or ""}" data-category="{cat}" data-name="{p["name"]}" data-price="{min_price(p) or ""}">
   <div class="product-media">{tag}<img src="{prefix}{p["cover"]}" alt="{p["name"]}" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">{p["brand"]}</p>
     <h3>{p["name"]}</h3>
     {colors}
-    <p class="product-price">Consulte</p>
+    <p class="product-price">{price_label(p)}</p>
   </div>
 </a>"""
 
 
 def home():
     cards = "\n".join(product_card(p, "") for p in PRODUCTS)
+    by = {p["slug"]: p for p in PRODUCTS}
     tiles = [
         (PRODUCTS[0], "Tênis", "Ver coleção", "tenis/"),
-        (PRODUCTS[4], "Lançamentos", "Nike Zoom X Run 3", f"tenis/{PRODUCTS[4]['slug']}/"),
-        (PRODUCTS[2], "Botas", "Vans MTE Ultrarange", f"tenis/{PRODUCTS[2]['slug']}/"),
-        (PRODUCTS[9], "Performance", "Adidas Adizero", f"tenis/{PRODUCTS[9]['slug']}/"),
+        (by["nike-zoom-x-run-3"], "Lançamentos", "Nike Zoom X Run 3", "tenis/nike-zoom-x-run-3/"),
+        (by["vans-mte-ultrarange"], "Botas", "Vans MTE Ultrarange", "tenis/vans-mte-ultrarange/"),
+        (by["adidas-adizero"], "Performance", "Adidas Adizero", "tenis/adidas-adizero/"),
     ]
     tile_html = ""
     for i, (p, label, sub, href) in enumerate(tiles, start=1):
@@ -189,7 +218,7 @@ def home():
   <div class="container hero-inner">
     <p class="hero-kicker">Nova marca · Cultura sneaker</p>
     <h1>Estilo urbano com identidade própria.</h1>
-    <p>A Monark reúne tênis com atitude, conforto e visual limpo. Confira os lançamentos e as reposições — valores sob consulta.</p>
+    <p>A Monark reúne tênis com atitude, conforto e visual limpo. Confira os lançamentos e as reposições, com preço em cada modelo.</p>
     <a class="btn btn-light" href="tenis/">Ver tênis</a>
   </div>
 </section>
@@ -217,7 +246,7 @@ def home():
   <div class="container">
     <div class="benefits">
       <div class="benefit"><h3>Seleção cuidada</h3><p>Modelos escolhidos com foco em conforto, visual e cultura sneaker.</p></div>
-      <div class="benefit"><h3>Valores sob consulta</h3><p>Fale com a gente para consultar valores e disponibilidade.</p></div>
+      <div class="benefit"><h3>Preço na vitrine</h3><p>Veja o preço de cada modelo e fale com a gente para confirmar tamanho e disponibilidade.</p></div>
       <div class="benefit"><h3>Fotos e vídeos reais</h3><p>Cada peça tem galeria e, quando houver, vídeo do produto.</p></div>
     </div>
   </div>
@@ -244,7 +273,7 @@ def listing():
       <a href="../">Início</a><span>/</span><span>Catálogo</span>
     </nav>
     <h1>Catálogo</h1>
-    <p>{len(PRODUCTS)} modelos no catálogo, organizados por categoria. Valores sob consulta.</p>
+    <p>{len(PRODUCTS)} modelos no catálogo, organizados por categoria.</p>
   </div>
 </section>
 <section class="container listing">
@@ -267,6 +296,7 @@ def listing():
     <div class="filter-group">
       <h3>Disponibilidade</h3>
       <div class="filter-options" id="tagFilters">
+        <button type="button" class="chip" data-filter="tag" data-value="Novidade">Novidade</button>
         <button type="button" class="chip" data-filter="tag" data-value="Lançamento">Lançamento</button>
         <button type="button" class="chip" data-filter="tag" data-value="Reposição">Reposição</button>
       </div>
@@ -281,6 +311,7 @@ def listing():
           <option value="nome">A–Z</option>
           <option value="marca">Marca</option>
           <option value="lancamento">Lançamentos</option>
+          <option value="preco">Menor preço</option>
         </select>
       </label>
     </div>
@@ -305,6 +336,22 @@ def video_entry(v):
         return v.get("src") or "", v.get("poster") or ""
     return v, ""
 
+
+
+def offers_schema(p):
+    known = [v for v in color_prices(p) if v]
+    if not known:
+        return {}
+    if len(set(known)) == 1:
+        return {"offers": {"@type": "Offer", "priceCurrency": "BRL", "price": f"{known[0]:.2f}"}}
+    return {
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "BRL",
+            "lowPrice": f"{min(known):.2f}",
+            "highPrice": f"{max(known):.2f}",
+        }
+    }
 
 
 def pdp(p):
@@ -363,6 +410,7 @@ def pdp(p):
             "name": c["name"],
             "images": [{"src": prefix + im["src"], "thumb": prefix + im["thumb"]} for im in c["images"]],
             "videos": media_videos(c),
+            "price": color_price_label(c),
         }
         for c in colors
     }
@@ -389,6 +437,11 @@ def pdp(p):
             + "</div>"
         )
     cat = p.get("category") or "Tênis"
+    pdp_note = (
+        "Fale com a gente para confirmar tamanho e disponibilidade."
+        if min_price(p)
+        else "Valor sob consulta. Fale com a gente para consultar valor, tamanho e disponibilidade."
+    )
     body = f"""<section class="container pdp" data-product="{p["slug"]}">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="../../">Início</a><span>/</span><a href="../">Catálogo</a><span>/</span><span>{p["name"]}</span>
@@ -405,8 +458,8 @@ def pdp(p):
       <p class="product-brand">{p["brand"]} · {cat}</p>
       {tag}
       <h1>{p["name"]}</h1>
-      <p class="pdp-price">Consulte</p>
-      <p class="pdp-note">Valores sob consulta. Fale com a gente para consultar valor, tamanho e disponibilidade.</p>
+      <p class="pdp-price" id="pdpPrice">{color_price_label(first)}</p>
+      <p class="pdp-note">{pdp_note}</p>
       <div class="pdp-colors">
         <h2>Cores</h2>
         <div class="color-row" id="colorRow">{color_btns}</div>
@@ -432,6 +485,7 @@ def pdp(p):
             "brand": p["brand"],
             "description": p["description"],
             "image": prefix + p["coverFull"],
+            **offers_schema(p),
         },
         ensure_ascii=False,
     )
@@ -442,7 +496,7 @@ def pdp(p):
 SOBRE = """<section class="container prose">
   <h1>Sobre a Monark</h1>
   <p>A Monark nasce da cultura streetwear e da paixão por tênis. Nosso objetivo é oferecer uma vitrine limpa, com modelos selecionados para quem vive a rua com estilo.</p>
-  <p>O catálogo já está no ar, com fotos e vídeos dos primeiros modelos. Valores, tamanhos e canais oficiais de compra seguem sob consulta.</p>
+  <p>O catálogo já está no ar, com fotos e vídeos dos primeiros modelos. Os preços já aparecem em cada modelo; tamanhos e disponibilidade seguem sob consulta.</p>
 </section>"""
 
 CONTATO = """<section class="container prose">
@@ -482,12 +536,17 @@ def main():
         ),
     }
     for p in PRODUCTS:
+        p["price"] = min_price(p)
+        p["priceLabel"] = price_label(p)
         files[f"tenis/{p['slug']}/index.html"] = pdp(p)
     for rel, html in files.items():
         path = ROOT / rel
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(html, encoding="utf-8")
         print("wrote", rel, "bytes", len(html))
+    (ROOT / "js/products.json").write_text(
+        json.dumps(PRODUCTS, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     data_js = "window.MONARK_PRODUCTS = " + json.dumps(PRODUCTS, ensure_ascii=False) + ";\n"
     (ROOT / "js/products-data.js").write_text(data_js, encoding="utf-8")
     print("wrote js/products-data.js")

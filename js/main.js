@@ -80,6 +80,11 @@
           return (a.dataset.brand || "").localeCompare(b.dataset.brand || "", "pt-BR") ||
             (a.dataset.name || "").localeCompare(b.dataset.name || "", "pt-BR");
         }
+        if (mode === "preco") {
+          const ap = parseFloat(a.dataset.price) || Infinity;
+          const bp = parseFloat(b.dataset.price) || Infinity;
+          return ap - bp || (a.dataset.name || "").localeCompare(b.dataset.name || "", "pt-BR");
+        }
         if (mode === "lancamento") {
           const aw = a.dataset.tag === "Lançamento" ? 0 : 1;
           const bw = b.dataset.tag === "Lançamento" ? 0 : 1;
@@ -229,6 +234,8 @@
         btn.classList.add("is-active");
         btn.setAttribute("aria-pressed", "true");
         if (colorName) colorName.textContent = color.name;
+        const priceEl = document.getElementById("pdpPrice");
+        if (priceEl && color.price) priceEl.textContent = color.price;
         renderThumbs(color);
         if (color.images[0]) showImage(color.images[0].src, color.name);
       });

@@ -21,7 +21,7 @@
   
 </head>
 <body>
-<div class="announce">Lançamentos e reposições Monark · Valores sob consulta</div>
+<div class="announce">Lançamentos e reposições Monark · Preços no site</div>
 <header class="header">
   <div class="container header-main">
     <button class="icon-btn menu-toggle" id="menuOpen" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -73,7 +73,7 @@
       <a href="../">Início</a><span>/</span><span>Catálogo</span>
     </nav>
     <h1>Catálogo</h1>
-    <p>10 modelos no catálogo, organizados por categoria. Valores sob consulta.</p>
+    <p>19 modelos no catálogo, organizados por categoria.</p>
   </div>
 </section>
 <section class="container listing">
@@ -91,11 +91,12 @@
     </div>
     <div class="filter-group">
       <h3>Marca</h3>
-      <div class="filter-options" id="brandFilters"><button type="button" class="chip" data-filter="brand" data-value="Adidas">Adidas</button><button type="button" class="chip" data-filter="brand" data-value="Armani Exchange">Armani Exchange</button><button type="button" class="chip" data-filter="brand" data-value="New Balance">New Balance</button><button type="button" class="chip" data-filter="brand" data-value="Nike">Nike</button><button type="button" class="chip" data-filter="brand" data-value="Prada">Prada</button><button type="button" class="chip" data-filter="brand" data-value="Vans">Vans</button></div>
+      <div class="filter-options" id="brandFilters"><button type="button" class="chip" data-filter="brand" data-value="Adidas">Adidas</button><button type="button" class="chip" data-filter="brand" data-value="Armani Exchange">Armani Exchange</button><button type="button" class="chip" data-filter="brand" data-value="Casual">Casual</button><button type="button" class="chip" data-filter="brand" data-value="Miu Miu">Miu Miu</button><button type="button" class="chip" data-filter="brand" data-value="New Balance">New Balance</button><button type="button" class="chip" data-filter="brand" data-value="Nike">Nike</button><button type="button" class="chip" data-filter="brand" data-value="On">On</button><button type="button" class="chip" data-filter="brand" data-value="Prada">Prada</button><button type="button" class="chip" data-filter="brand" data-value="Reserva">Reserva</button><button type="button" class="chip" data-filter="brand" data-value="Vans">Vans</button></div>
     </div>
     <div class="filter-group">
       <h3>Disponibilidade</h3>
       <div class="filter-options" id="tagFilters">
+        <button type="button" class="chip" data-filter="tag" data-value="Novidade">Novidade</button>
         <button type="button" class="chip" data-filter="tag" data-value="Lançamento">Lançamento</button>
         <button type="button" class="chip" data-filter="tag" data-value="Reposição">Reposição</button>
       </div>
@@ -103,26 +104,108 @@
   </aside>
   <div class="listing-main">
     <div class="toolbar">
-      <p class="count" id="productCount">10 produtos encontrados</p>
+      <p class="count" id="productCount">19 produtos encontrados</p>
       <label>
         <span class="visually-hidden">Ordenar</span>
         <select id="sortSelect" aria-label="Ordenar">
           <option value="nome">A–Z</option>
           <option value="marca">Marca</option>
           <option value="lancamento">Lançamentos</option>
+          <option value="preco">Menor preço</option>
         </select>
       </label>
     </div>
-    <div class="product-grid" id="productGrid"><a class="product-card" href="../tenis/nike-fit/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Fit">
+    <div class="product-grid" id="productGrid"><a class="product-card" href="../tenis/new-balance-9060/" data-brand="New Balance" data-tag="Novidade" data-category="Tênis" data-name="New Balance 9060" data-price="200">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/new-balance-9060/branco-cinza-01-thumb.webp" alt="New Balance 9060" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">New Balance</p>
+    <h3>New Balance 9060</h3>
+    <p class="product-meta">3 cores</p>
+    <p class="product-price">A partir de R$ 200,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/new-balance-fresh-foam-x/" data-brand="New Balance" data-tag="Novidade" data-category="Tênis" data-name="New Balance Fresh Foam X" data-price="180">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/new-balance-fresh-foam-x/cinza-01-thumb.webp" alt="New Balance Fresh Foam X" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">New Balance</p>
+    <h3>New Balance Fresh Foam X</h3>
+    <p class="product-meta">6 cores</p>
+    <p class="product-price">R$ 180,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/new-balance-rebel/" data-brand="New Balance" data-tag="Novidade" data-category="Tênis" data-name="New Balance Rebel" data-price="180">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/new-balance-rebel/rosa-01-thumb.webp" alt="New Balance Rebel" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">New Balance</p>
+    <h3>New Balance Rebel</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 180,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/nike-creme/" data-brand="Nike" data-tag="Novidade" data-category="Tênis" data-name="Nike Running Creme" data-price="190">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/nike-creme/creme-marrom-01-thumb.webp" alt="Nike Running Creme" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Nike</p>
+    <h3>Nike Running Creme</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 190,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/nike-bege-rose/" data-brand="Nike" data-tag="Novidade" data-category="Tênis" data-name="Nike Bege e Rose" data-price="170">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/nike-bege-rose/bege-rose-01-thumb.webp" alt="Nike Bege e Rose" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Nike</p>
+    <h3>Nike Bege e Rose</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 170,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/miu-miu/" data-brand="Miu Miu" data-tag="Novidade" data-category="Tênis" data-name="Miu Miu Camurça" data-price="220">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/miu-miu/marrom-01-thumb.webp" alt="Miu Miu Camurça" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Miu Miu</p>
+    <h3>Miu Miu Camurça</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 220,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/reserva-branco/" data-brand="Reserva" data-tag="Novidade" data-category="Tênis" data-name="Reserva Branco" data-price="190">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/reserva-branco/branco-caramelo-01-thumb.webp" alt="Reserva Branco" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Reserva</p>
+    <h3>Reserva Branco</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 190,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/tenis-plataforma-branco/" data-brand="Casual" data-tag="Novidade" data-category="Tênis" data-name="Tênis Plataforma Branco" data-price="380">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/tenis-plataforma-branco/branco-01-thumb.webp" alt="Tênis Plataforma Branco" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">Casual</p>
+    <h3>Tênis Plataforma Branco</h3>
+    <p class="product-meta">1 cor</p>
+    <p class="product-price">R$ 380,00</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/on-cloud/" data-brand="On" data-tag="Novidade" data-category="Tênis" data-name="On Cloud" data-price="">
+  <div class="product-media"><span class="product-tag">Novidade</span><img src="../assets/products/on-cloud/off-white-preto-01-thumb.webp" alt="On Cloud" width="800" height="800" loading="lazy" decoding="async" /></div>
+  <div class="product-info">
+    <p class="product-brand">On</p>
+    <h3>On Cloud</h3>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">Consulte</p>
+  </div>
+</a>
+<a class="product-card" href="../tenis/nike-fit/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Fit" data-price="180">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-fit/marrom-01-thumb.webp" alt="Nike Fit" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
     <h3>Nike Fit</h3>
-    <p class="product-meta">1 cor</p>
-    <p class="product-price">Consulte</p>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">R$ 180,00</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/new-balance-supercomp-elite-v6/" data-brand="New Balance" data-tag="Lançamento" data-category="Tênis" data-name="New Balance Supercomp Elite V6">
+<a class="product-card" href="../tenis/new-balance-supercomp-elite-v6/" data-brand="New Balance" data-tag="Lançamento" data-category="Tênis" data-name="New Balance Supercomp Elite V6" data-price="">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/new-balance-supercomp-elite-v6/limao-01-thumb.webp" alt="New Balance Supercomp Elite V6" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">New Balance</p>
@@ -131,7 +214,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/vans-mte-ultrarange/" data-brand="Vans" data-tag="Lançamento" data-category="Botas" data-name="Bota Vans MTE Ultrarange">
+<a class="product-card" href="../tenis/vans-mte-ultrarange/" data-brand="Vans" data-tag="Lançamento" data-category="Botas" data-name="Bota Vans MTE Ultrarange" data-price="">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/vans-mte-ultrarange/preto-01-thumb.webp" alt="Bota Vans MTE Ultrarange" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Vans</p>
@@ -140,16 +223,16 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-slip-on/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Slip On">
+<a class="product-card" href="../tenis/adidas-slip-on/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Slip On" data-price="250">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-slip-on/preto-01-thumb.webp" alt="Adidas Slip On" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
     <h3>Adidas Slip On</h3>
-    <p class="product-meta">1 cor</p>
-    <p class="product-price">Consulte</p>
+    <p class="product-meta">2 cores</p>
+    <p class="product-price">R$ 250,00</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/nike-zoom-x-run-3/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Zoom X Run 3">
+<a class="product-card" href="../tenis/nike-zoom-x-run-3/" data-brand="Nike" data-tag="Lançamento" data-category="Tênis" data-name="Nike Zoom X Run 3" data-price="">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp" alt="Nike Zoom X Run 3" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
@@ -158,16 +241,16 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/nike-air-force/" data-brand="Nike" data-tag="Reposição" data-category="Tênis" data-name="Nike Air Force">
+<a class="product-card" href="../tenis/nike-air-force/" data-brand="Nike" data-tag="Reposição" data-category="Tênis" data-name="Nike Air Force" data-price="200">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/nike-air-force/preto-01-thumb.webp" alt="Nike Air Force" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Nike</p>
     <h3>Nike Air Force</h3>
-    <p class="product-meta">2 cores</p>
-    <p class="product-price">Consulte</p>
+    <p class="product-meta">4 cores</p>
+    <p class="product-price">A partir de R$ 200,00</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/prada-thunder/" data-brand="Prada" data-tag="Reposição" data-category="Tênis" data-name="Prada Thunder">
+<a class="product-card" href="../tenis/prada-thunder/" data-brand="Prada" data-tag="Reposição" data-category="Tênis" data-name="Prada Thunder" data-price="">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/prada-thunder/preto-01-thumb.webp" alt="Prada Thunder" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Prada</p>
@@ -176,7 +259,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-campus/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Campus">
+<a class="product-card" href="../tenis/adidas-campus/" data-brand="Adidas" data-tag="Reposição" data-category="Tênis" data-name="Adidas Campus" data-price="">
   <div class="product-media"><span class="product-tag">Reposição</span><img src="../assets/products/adidas-campus/preto-01-thumb.webp" alt="Adidas Campus" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
@@ -185,7 +268,7 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/armani-exchange/" data-brand="Armani Exchange" data-tag="Lançamento" data-category="Tênis" data-name="Armani Exchange">
+<a class="product-card" href="../tenis/armani-exchange/" data-brand="Armani Exchange" data-tag="Lançamento" data-category="Tênis" data-name="Armani Exchange" data-price="">
   <div class="product-media"><span class="product-tag">Lançamento</span><img src="../assets/products/armani-exchange/preto-01-thumb.webp" alt="Armani Exchange" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Armani Exchange</p>
@@ -194,13 +277,13 @@
     <p class="product-price">Consulte</p>
   </div>
 </a>
-<a class="product-card" href="../tenis/adidas-adizero/" data-brand="Adidas" data-tag="" data-category="Tênis" data-name="Adidas Adizero">
+<a class="product-card" href="../tenis/adidas-adizero/" data-brand="Adidas" data-tag="" data-category="Tênis" data-name="Adidas Adizero" data-price="190">
   <div class="product-media"><img src="../assets/products/adidas-adizero/preto-pink-01-thumb.webp" alt="Adidas Adizero" width="800" height="800" loading="lazy" decoding="async" /></div>
   <div class="product-info">
     <p class="product-brand">Adidas</p>
     <h3>Adidas Adizero</h3>
-    <p class="product-meta">4 cores</p>
-    <p class="product-price">Consulte</p>
+    <p class="product-meta">5 cores</p>
+    <p class="product-price">A partir de R$ 190,00</p>
   </div>
 </a></div>
     <div class="empty" id="emptyState" hidden>
@@ -254,7 +337,7 @@
   </div>
   <div class="container footer-bottom">
     <span>&copy; 2026 Monark. Todos os direitos reservados.</span>
-    <span>Valores sob consulta.</span>
+    <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
 <script src="../js/products-data.js"></script>
