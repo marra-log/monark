@@ -29,13 +29,13 @@ EXISTING = {
         "description": "Tênis Nike Fit com swoosh em contraste e solado creme. Disponível nas cores marrom e branco.",
         "colors": [
             {"id": "marrom", "add": [img("0159")], "price": 180},
-            {"id": "branco", "name": "Branco", "add": [img("0160")], "price": 180},
+            {"id": "branco", "name": "Branco", "add": [img("0160")], "price": None},
         ],
     },
     "adidas-slip-on": {
         "description": "Tênis Adidas Slip On com elástico cruzado e bico clássico. Disponível nas cores preto (solado branco) e marrom (solado off-white).",
         "colors": [
-            {"id": "preto", "add": [img("0206")], "price": 250},
+            {"id": "preto", "add": [img("0206")], "price": None},
             {"id": "marrom", "name": "Marrom", "add": [img("0207"), img("0208")], "price": 250},
         ],
     },
@@ -49,7 +49,7 @@ EXISTING = {
     "nike-air-force": {
         "description": "Tênis Nike Air Force. Disponível nas cores preto, branco com swoosh azul-marinho, preto com cadarço de corda e bordô com rosa em verniz.",
         "colors": [
-            {"id": "preto-corda", "name": "Preto com cadarço de corda", "add": [img("0143")], "price": 200},
+            {"id": "preto-corda", "name": "Preto e sail (cadarço de corda)", "add": [img("0143")], "price": 200},
             {"id": "bordo-rosa", "name": "Bordô e rosa (verniz)", "add": [img("0158")], "price": 250},
         ],
     },
@@ -61,9 +61,9 @@ NEW = [
         "slug": "new-balance-9060",
         "name": "New Balance 9060",
         "brand": "New Balance",
-        "description": "Tênis New Balance 9060, cabedal em camurça e mesh com solado robusto. Disponível nas cores branco e cinza, cinza claro, e creme com bordô.",
+        "description": "Tênis New Balance 9060, cabedal em camurça e mesh com solado robusto. Disponível nas cores branco e prata, cinza claro, e creme com bordô.",
         "colors": [
-            {"id": "branco-cinza", "name": "Branco e cinza", "images": [img("0136")], "price": 200},
+            {"id": "branco-prata", "name": "Branco e prata", "images": [img("0136")], "price": 200},
             {"id": "cinza-claro", "name": "Cinza claro", "images": [img("0137")], "price": 250},
             {"id": "creme-bordo", "name": "Creme e bordô", "images": [img("0138")], "price": 240},
         ],
@@ -83,10 +83,10 @@ NEW = [
         ],
     },
     {
-        "slug": "new-balance-rebel",
-        "name": "New Balance Rebel",
+        "slug": "new-balance-fuelcell-rebel-v4",
+        "name": "New Balance FuelCell Rebel v4",
         "brand": "New Balance",
-        "description": "Tênis New Balance Rebel na cor off-white com rosa.",
+        "description": "Tênis de corrida New Balance FuelCell Rebel v4, leve e com entressola FuelCell, na cor off-white com rosa.",
         "colors": [
             {"id": "rosa", "name": "Off-white e rosa", "images": [img("0150")], "price": 180},
         ],
@@ -101,19 +101,19 @@ NEW = [
         ],
     },
     {
-        "slug": "nike-bege-rose",
-        "name": "Nike Bege e Rose",
+        "slug": "nike-free-metcon-6",
+        "name": "Nike Free Metcon 6",
         "brand": "Nike",
-        "description": "Tênis Nike bege com swoosh rose e calcanhar caramelo.",
+        "description": "Tênis de treino Nike Free Metcon 6, bege com swoosh rose gold e calcanhar caramelo.",
         "colors": [
-            {"id": "bege-rose", "name": "Bege e rose", "images": [img("0203")], "price": 170},
+            {"id": "bege-rose", "name": "Bege e rose gold", "images": [img("0203")], "price": 170},
         ],
     },
     {
         "slug": "miu-miu",
-        "name": "Miu Miu Camurça",
+        "name": "Miu Miu Suede Platform",
         "brand": "Miu Miu",
-        "description": "Tênis Miu Miu em camurça marrom, com solado plataforma off-white.",
+        "description": "Tênis Miu Miu em camurça marrom, com solado plataforma off-white e logo na lateral.",
         "colors": [
             {"id": "marrom", "name": "Marrom", "images": [img("0200")], "price": 220},
         ],
@@ -137,12 +137,12 @@ NEW = [
         ],
     },
     {
-        "slug": "on-cloud",
-        "name": "On Cloud",
+        "slug": "on-cloudtilt",
+        "name": "On Cloudtilt",
         "brand": "On",
-        "description": "Tênis On com solado Cloud vazado. Disponível nas cores off-white com preto e preto.",
+        "description": "Tênis On Cloudtilt com entressola CloudTec Phase vazada. Disponível nas cores ivory com preto e preto.",
         "colors": [
-            {"id": "off-white-preto", "name": "Off-white e preto", "images": [img("0212")], "price": None},
+            {"id": "ivory-preto", "name": "Ivory e preto", "images": [img("0212")], "price": None},
             {"id": "preto", "name": "Preto", "images": [img("0213")], "price": None},
         ],
     },
