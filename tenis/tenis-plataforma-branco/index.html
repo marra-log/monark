@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../../css/styles.css" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Tênis Plataforma Branco", "brand": "Casual", "description": "Tênis casual todo branco, em couro, com solado plataforma.", "image": "../../assets/products/tenis-plataforma-branco/branco-01.webp", "offers": {"@type": "Offer", "priceCurrency": "BRL", "price": "380.00"}}</script>
 </head>
-<body>
+<body data-prefix="../../">
 <div class="announce">Lançamentos e reposições Monark · Preços no site</div>
 <header class="header">
   <div class="container header-main">
@@ -39,7 +39,7 @@
         <input type="search" name="q" placeholder="Buscar tênis..." aria-label="Buscar tênis" />
       </form>
       <button class="icon-btn" aria-label="Minha conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" stroke-linecap="round"/></svg></button>
-      <button class="icon-btn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge">0</span></button>
+      <a class="icon-btn" href="../../carrinho/" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge" id="cartCount">0</span></a>
     </div>
   </div>
   <div class="cat-bar">
@@ -90,8 +90,20 @@
         <div class="color-row" id="colorRow"><button type="button" class="color-swatch is-active" data-color="branco" aria-pressed="true">Branco</button></div>
         <p class="pdp-color-name" id="colorName">Branco</p>
       </div>
-      <p class="pdp-sizes"><strong>Tamanhos:</strong> consulte disponibilidade.</p>
-      <a class="btn btn-dark pdp-cta" href="../../contato/">Consultar este modelo</a>
+      <div class="pdp-size">
+        <h2>Tamanho</h2>
+        <div class="size-row" id="sizeRow"><button type="button" class="size-btn" data-size="34" aria-pressed="false">34</button><button type="button" class="size-btn" data-size="35" aria-pressed="false">35</button><button type="button" class="size-btn" data-size="36" aria-pressed="false">36</button><button type="button" class="size-btn" data-size="37" aria-pressed="false">37</button><button type="button" class="size-btn" data-size="38" aria-pressed="false">38</button><button type="button" class="size-btn" data-size="39" aria-pressed="false">39</button><button type="button" class="size-btn" data-size="40" aria-pressed="false">40</button><button type="button" class="size-btn" data-size="41" aria-pressed="false">41</button><button type="button" class="size-btn" data-size="42" aria-pressed="false">42</button><button type="button" class="size-btn" data-size="43" aria-pressed="false">43</button><button type="button" class="size-btn" data-size="44" aria-pressed="false">44</button></div>
+        <p class="pdp-size-hint" id="sizeHint">Escolha o tamanho. A disponibilidade é confirmada no WhatsApp.</p>
+      </div>
+      <div class="pdp-qty">
+        <h2>Quantidade</h2>
+        <div class="qty" data-qty>
+          <button type="button" class="qty-btn" data-qty-step="-1" aria-label="Diminuir">−</button>
+          <input type="number" id="qtyInput" min="1" max="10" value="1" inputmode="numeric" aria-label="Quantidade" />
+          <button type="button" class="qty-btn" data-qty-step="1" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-dark pdp-cta" id="addToCart" data-slug="tenis-plataforma-branco" data-name="Tênis Plataforma Branco">Adicionar ao carrinho</button>
     </div>
   </div>
   <div class="pdp-desc">
@@ -101,7 +113,7 @@
     
   </div>
 </section>
-<script>window.MONARK_MEDIA = {"branco": {"name": "Branco", "images": [{"src": "../../assets/products/tenis-plataforma-branco/branco-01.webp", "thumb": "../../assets/products/tenis-plataforma-branco/branco-01-thumb.webp"}], "videos": [], "price": "R$ 380,00"}};</script>
+<script>window.MONARK_MEDIA = {"branco": {"name": "Branco", "images": [{"src": "../../assets/products/tenis-plataforma-branco/branco-01.webp", "thumb": "../../assets/products/tenis-plataforma-branco/branco-01-thumb.webp"}], "videos": [], "price": "R$ 380,00", "priceValue": 380, "cover": "assets/products/tenis-plataforma-branco/branco-01-thumb.webp"}};</script>
 <section class="newsletter">
   <div class="container newsletter-inner">
     <div>
@@ -150,6 +162,7 @@
     <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
+<script src="../../js/config.js"></script>
 <script src="../../js/products-data.js"></script>
 <script src="../../js/main.js"></script>
 </body>

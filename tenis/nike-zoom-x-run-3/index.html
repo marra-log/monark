@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../../css/styles.css" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Nike Zoom X Run 3", "brand": "Nike", "description": "Tênis Nike Zoom X Run 3, com unidade visível no solado. Disponível nas cores off-white e rosa, marrom, preto e pink, e preto.", "image": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-01.webp"}</script>
 </head>
-<body>
+<body data-prefix="../../">
 <div class="announce">Lançamentos e reposições Monark · Preços no site</div>
 <header class="header">
   <div class="container header-main">
@@ -39,7 +39,7 @@
         <input type="search" name="q" placeholder="Buscar tênis..." aria-label="Buscar tênis" />
       </form>
       <button class="icon-btn" aria-label="Minha conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" stroke-linecap="round"/></svg></button>
-      <button class="icon-btn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge">0</span></button>
+      <a class="icon-btn" href="../../carrinho/" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge" id="cartCount">0</span></a>
     </div>
   </div>
   <div class="cat-bar">
@@ -90,8 +90,20 @@
         <div class="color-row" id="colorRow"><button type="button" class="color-swatch is-active" data-color="off-white-rosa" aria-pressed="true">Off-white e rosa</button><button type="button" class="color-swatch" data-color="marrom" aria-pressed="false">Marrom</button><button type="button" class="color-swatch" data-color="preto-pink" aria-pressed="false">Preto e pink</button><button type="button" class="color-swatch" data-color="preto" aria-pressed="false">Preto</button></div>
         <p class="pdp-color-name" id="colorName">Off-white e rosa</p>
       </div>
-      <p class="pdp-sizes"><strong>Tamanhos:</strong> consulte disponibilidade.</p>
-      <a class="btn btn-dark pdp-cta" href="../../contato/">Consultar este modelo</a>
+      <div class="pdp-size">
+        <h2>Tamanho</h2>
+        <div class="size-row" id="sizeRow"><button type="button" class="size-btn" data-size="34" aria-pressed="false">34</button><button type="button" class="size-btn" data-size="35" aria-pressed="false">35</button><button type="button" class="size-btn" data-size="36" aria-pressed="false">36</button><button type="button" class="size-btn" data-size="37" aria-pressed="false">37</button><button type="button" class="size-btn" data-size="38" aria-pressed="false">38</button><button type="button" class="size-btn" data-size="39" aria-pressed="false">39</button><button type="button" class="size-btn" data-size="40" aria-pressed="false">40</button><button type="button" class="size-btn" data-size="41" aria-pressed="false">41</button><button type="button" class="size-btn" data-size="42" aria-pressed="false">42</button><button type="button" class="size-btn" data-size="43" aria-pressed="false">43</button><button type="button" class="size-btn" data-size="44" aria-pressed="false">44</button></div>
+        <p class="pdp-size-hint" id="sizeHint">Escolha o tamanho. A disponibilidade é confirmada no WhatsApp.</p>
+      </div>
+      <div class="pdp-qty">
+        <h2>Quantidade</h2>
+        <div class="qty" data-qty>
+          <button type="button" class="qty-btn" data-qty-step="-1" aria-label="Diminuir">−</button>
+          <input type="number" id="qtyInput" min="1" max="10" value="1" inputmode="numeric" aria-label="Quantidade" />
+          <button type="button" class="qty-btn" data-qty-step="1" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-dark pdp-cta" id="addToCart" data-slug="nike-zoom-x-run-3" data-name="Nike Zoom X Run 3">Adicionar ao carrinho</button>
     </div>
   </div>
   <div class="pdp-desc">
@@ -101,7 +113,7 @@
     <div class="pdp-labels"><h2>Identificação do produto</h2><p class="label-line">LANÇAMENTO DISPONÍVEL — NIKE ZOOM X RUN 3</p><p class="label-line">LANÇAMENTOS DISPONÍVEIS — NIKE ZOOM X RUN 3</p><img class="label-print" src="../../assets/products/nike-zoom-x-run-3/label-01.webp" alt="Print com o nome do produto" /><img class="label-print" src="../../assets/products/nike-zoom-x-run-3/label-02.webp" alt="Print com o nome do produto" /></div>
   </div>
 </section>
-<script>window.MONARK_MEDIA = {"off-white-rosa": {"name": "Off-white e rosa", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-02-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-03.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-03-thumb.webp"}], "videos": [], "price": "Consulte"}, "marrom": {"name": "Marrom", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/marrom-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/marrom-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/marrom-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/marrom-02-thumb.webp"}], "videos": [{"src": "../../assets/videos/VID-20261115-WA0148.mp4", "poster": "../../assets/videos/posters/VID-20261115-WA0148.webp"}], "price": "Consulte"}, "preto-pink": {"name": "Preto e pink", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/preto-pink-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-pink-01-thumb.webp"}], "videos": [{"src": "../../assets/videos/VID-20261115-WA0146.mp4", "poster": "../../assets/videos/posters/VID-20261115-WA0146.webp"}], "price": "Consulte"}, "preto": {"name": "Preto", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/preto-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/preto-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-02-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/preto-03.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-03-thumb.webp"}], "videos": [], "price": "Consulte"}};</script>
+<script>window.MONARK_MEDIA = {"off-white-rosa": {"name": "Off-white e rosa", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-02-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-03.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/off-white-rosa-03-thumb.webp"}], "videos": [], "price": "Consulte", "priceValue": null, "cover": "assets/products/nike-zoom-x-run-3/off-white-rosa-01-thumb.webp"}, "marrom": {"name": "Marrom", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/marrom-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/marrom-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/marrom-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/marrom-02-thumb.webp"}], "videos": [{"src": "../../assets/videos/VID-20261115-WA0148.mp4", "poster": "../../assets/videos/posters/VID-20261115-WA0148.webp"}], "price": "Consulte", "priceValue": null, "cover": "assets/products/nike-zoom-x-run-3/marrom-01-thumb.webp"}, "preto-pink": {"name": "Preto e pink", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/preto-pink-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-pink-01-thumb.webp"}], "videos": [{"src": "../../assets/videos/VID-20261115-WA0146.mp4", "poster": "../../assets/videos/posters/VID-20261115-WA0146.webp"}], "price": "Consulte", "priceValue": null, "cover": "assets/products/nike-zoom-x-run-3/preto-pink-01-thumb.webp"}, "preto": {"name": "Preto", "images": [{"src": "../../assets/products/nike-zoom-x-run-3/preto-01.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-01-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/preto-02.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-02-thumb.webp"}, {"src": "../../assets/products/nike-zoom-x-run-3/preto-03.webp", "thumb": "../../assets/products/nike-zoom-x-run-3/preto-03-thumb.webp"}], "videos": [], "price": "Consulte", "priceValue": null, "cover": "assets/products/nike-zoom-x-run-3/preto-01-thumb.webp"}};</script>
 <section class="newsletter">
   <div class="container newsletter-inner">
     <div>
@@ -150,6 +162,7 @@
     <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
+<script src="../../js/config.js"></script>
 <script src="../../js/products-data.js"></script>
 <script src="../../js/main.js"></script>
 </body>

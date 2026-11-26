@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
   
 </head>
-<body>
+<body data-prefix="../">
 <div class="announce">Lançamentos e reposições Monark · Preços no site</div>
 <header class="header">
   <div class="container header-main">
@@ -39,7 +39,7 @@
         <input type="search" name="q" placeholder="Buscar tênis..." aria-label="Buscar tênis" />
       </form>
       <button class="icon-btn" aria-label="Minha conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" stroke-linecap="round"/></svg></button>
-      <button class="icon-btn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge">0</span></button>
+      <a class="icon-btn" href="../carrinho/" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge" id="cartCount">0</span></a>
     </div>
   </div>
   <div class="cat-bar">
@@ -120,6 +120,7 @@
     <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
+<script src="../js/config.js"></script>
 <script src="../js/products-data.js"></script>
 <script src="../js/main.js"></script>
 </body>

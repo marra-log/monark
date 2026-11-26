@@ -34,7 +34,7 @@ def header(prefix: str, active: str = "") -> str:
         <input type="search" name="q" placeholder="Buscar tênis..." aria-label="Buscar tênis" />
       </form>
       <button class="icon-btn" aria-label="Minha conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" stroke-linecap="round"/></svg></button>
-      <button class="icon-btn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge">0</span></button>
+      <a class="icon-btn" href="{prefix}carrinho/" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 8.5h11l-1 10H7.5l-1-10Z" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></svg><span class="badge" id="cartCount">0</span></a>
     </div>
   </div>
   <div class="cat-bar">
@@ -116,6 +116,7 @@ def footer(prefix: str) -> str:
     <span>Preços sujeitos a disponibilidade de tamanho e cor.</span>
   </div>
 </footer>
+<script src="{prefix}js/config.js"></script>
 <script src="{prefix}js/products-data.js"></script>
 <script src="{prefix}js/main.js"></script>"""
 
@@ -143,7 +144,7 @@ def page(title, description, prefix, body, active="", extra_head=""):
   <link rel="stylesheet" href="{prefix}css/styles.css" />
   {extra_head}
 </head>
-<body>
+<body data-prefix="{prefix}">
 {header(prefix, active)}
 {body}
 {newsletter(prefix)}
@@ -354,6 +355,9 @@ def offers_schema(p):
     }
 
 
+SIZES = list(range(34, 45))
+
+
 def pdp(p):
     prefix = "../../"
     colors = p["colors"]
@@ -411,6 +415,8 @@ def pdp(p):
             "images": [{"src": prefix + im["src"], "thumb": prefix + im["thumb"]} for im in c["images"]],
             "videos": media_videos(c),
             "price": color_price_label(c),
+            "priceValue": c.get("price"),
+            "cover": c["images"][0]["thumb"],
         }
         for c in colors
     }
@@ -437,6 +443,10 @@ def pdp(p):
             + "</div>"
         )
     cat = p.get("category") or "Tênis"
+    size_btns = "".join(
+        f'<button type="button" class="size-btn" data-size="{n}" aria-pressed="false">{n}</button>'
+        for n in SIZES
+    )
     pdp_note = (
         "Fale com a gente para confirmar tamanho e disponibilidade."
         if min_price(p)
@@ -465,8 +475,20 @@ def pdp(p):
         <div class="color-row" id="colorRow">{color_btns}</div>
         <p class="pdp-color-name" id="colorName">{first["name"]}</p>
       </div>
-      <p class="pdp-sizes"><strong>Tamanhos:</strong> consulte disponibilidade.</p>
-      <a class="btn btn-dark pdp-cta" href="../../contato/">Consultar este modelo</a>
+      <div class="pdp-size">
+        <h2>Tamanho</h2>
+        <div class="size-row" id="sizeRow">{size_btns}</div>
+        <p class="pdp-size-hint" id="sizeHint">Escolha o tamanho. A disponibilidade é confirmada no WhatsApp.</p>
+      </div>
+      <div class="pdp-qty">
+        <h2>Quantidade</h2>
+        <div class="qty" data-qty>
+          <button type="button" class="qty-btn" data-qty-step="-1" aria-label="Diminuir">−</button>
+          <input type="number" id="qtyInput" min="1" max="10" value="1" inputmode="numeric" aria-label="Quantidade" />
+          <button type="button" class="qty-btn" data-qty-step="1" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-dark pdp-cta" id="addToCart" data-slug="{p["slug"]}" data-name="{p["name"]}">Adicionar ao carrinho</button>
     </div>
   </div>
   <div class="pdp-desc">
@@ -521,12 +543,64 @@ TROCAS = """<section class="container prose">
 </section>"""
 
 
+CARRINHO = """<section class="container cart-page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Início</a><span>/</span><span>Carrinho</span></nav>
+  <h1>Carrinho</h1>
+  <div id="cartRoot" class="cart-layout"><p class="cart-empty">Carregando…</p></div>
+</section>"""
+
+CHECKOUT = """<section class="container checkout-page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Início</a><span>/</span><a href="../carrinho/">Carrinho</a><span>/</span><span>Finalizar pedido</span></nav>
+  <h1>Finalizar pedido</h1>
+  <p class="checkout-intro">Preencha seus dados e o endereço de entrega. Ao concluir, o pedido é enviado para o WhatsApp da Monark, onde confirmamos tamanho, frete e pagamento.</p>
+  <div class="checkout-layout" id="checkoutRoot">
+    <form id="checkoutForm" class="checkout-form" novalidate>
+      <fieldset>
+        <legend>Seus dados</legend>
+        <label>Nome completo<input name="nome" autocomplete="name" required /></label>
+        <label>WhatsApp<input name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(31) 99999-9999" required /></label>
+        <label>E-mail <span class="opt">(opcional)</span><input name="email" type="email" autocomplete="email" /></label>
+      </fieldset>
+      <fieldset>
+        <legend>Entrega</legend>
+        <label>CEP<input name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required /></label>
+        <p class="cep-status" id="cepStatus" aria-live="polite"></p>
+        <label>Rua<input name="rua" autocomplete="address-line1" required /></label>
+        <div class="row-2">
+          <label>Número<input name="numero" inputmode="numeric" required /></label>
+          <label>Complemento <span class="opt">(opcional)</span><input name="complemento" autocomplete="address-line2" /></label>
+        </div>
+        <label>Bairro<input name="bairro" required /></label>
+        <div class="row-2">
+          <label>Cidade<input name="cidade" autocomplete="address-level2" required /></label>
+          <label>UF<input name="uf" maxlength="2" autocomplete="address-level1" required /></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Pagamento</legend>
+        <div class="pay-options">
+          <label class="radio"><input type="radio" name="pagamento" value="Pix" checked /> Pix</label>
+          <label class="radio"><input type="radio" name="pagamento" value="Cartão de crédito (link de pagamento)" /> Cartão de crédito (link de pagamento)</label>
+        </div>
+        <p class="field-note">O pagamento é combinado no WhatsApp depois da confirmação do pedido.</p>
+      </fieldset>
+      <label>Observações <span class="opt">(opcional)</span><textarea name="obs" rows="3"></textarea></label>
+      <p class="form-error" id="formError" role="alert" hidden></p>
+      <button type="submit" class="btn btn-dark checkout-submit">Enviar pedido pelo WhatsApp</button>
+    </form>
+    <aside class="checkout-summary" id="checkoutSummary"></aside>
+  </div>
+</section>"""
+
+
 def main():
     files = {
         "index.html": home(),
         "tenis/index.html": listing(),
         "sobre/index.html": page("Sobre — Monark", "Sobre a Monark, loja de tênis streetwear.", "../", SOBRE, "sobre"),
         "contato/index.html": page("Contato — Monark", "Fale com a Monark.", "../", CONTATO, "contato"),
+        "carrinho/index.html": page("Carrinho — Monark", "Seu carrinho na Monark.", "../", CARRINHO),
+        "checkout/index.html": page("Finalizar pedido — Monark", "Finalize seu pedido na Monark.", "../", CHECKOUT),
         "trocas-e-devolucoes/index.html": page(
             "Trocas e devoluções — Monark",
             "Trocas e devoluções Monark.",
